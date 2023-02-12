@@ -73,10 +73,10 @@ final infoProvider = FutureProvider.autoDispose.family<List<BookInfo>, String>((
   return info;
 });
 
-class SearchPage extends ConsumerWidget {
+class SearchResultPage extends ConsumerWidget {
   final String query;
 
-  const SearchPage(this.query, {super.key});
+  const SearchResultPage(this.query, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -137,8 +137,10 @@ class ListBooksView extends StatelessWidget {
                       tag: book.imgUrl,
                       child: CachedNetworkImage(
                         imageUrl: book.imgUrl,
-                        progressIndicatorBuilder: (_, __, downloadProgress) => CircularProgressIndicator(
-                          value: downloadProgress.progress,
+                        progressIndicatorBuilder: (_, __, downloadProgress) => Center(
+                          child: IntrinsicHeight(
+                            child: CircularProgressIndicator(value: downloadProgress.progress),
+                          ),
                         ),
                         errorWidget: (_, __, ___) => const Center(child: Icon(Icons.error, color: Colors.red)),
                         fit: BoxFit.contain,

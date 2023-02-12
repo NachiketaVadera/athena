@@ -1,16 +1,15 @@
 # athena
 
-A new Flutter project.
+Hello world!
 
-## Getting Started
+A while back, I was working on a project called [EBookDownloader](https://github.com/NachiketaVadera/EBookDownloader). 
 
-This project is a starting point for a Flutter application.
+athena is the rebirth and evolution of that project, completely rebuilt with Flutter.
 
-A few resources to get you started if this is your first Flutter project:
+Still a lot of work to do but I'm happy to accept any contributions. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Roadmap
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Add more sources
+* Improve search
+* Buildout the reader

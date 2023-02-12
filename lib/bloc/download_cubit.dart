@@ -25,7 +25,7 @@ class DownloadCubit extends Cubit<DownloadState> {
         'https://libgen.rocks/${downloadUrl!}',
         onReceiveProgress: (received, total) {
           if (total != -1) {
-            emit(DownloadProgress('${(received / total * 100).toStringAsFixed(0)}}%'));
+            emit(DownloadInProgress('${(received / total * 100).toStringAsFixed(0)}}%'));
           }
         },
         options: Options(

@@ -7,9 +7,9 @@ class DownloadInitial extends DownloadState {}
 
 class Downloading extends DownloadState {}
 
-class DownloadProgress extends DownloadState {
+class DownloadInProgress extends DownloadState {
   final String progress;
-  DownloadProgress(this.progress);
+  DownloadInProgress(this.progress);
 }
 
 class Downloaded extends DownloadState {}

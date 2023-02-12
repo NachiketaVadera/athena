@@ -76,7 +76,7 @@ class DetailsPage extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 100),
                   child: BlocBuilder<DownloadCubit, DownloadState>(
                     builder: (context, state) {
-                      if (state is DownloadProgress) {
+                      if (state is DownloadInProgress) {
                         return Center(
                           child: Text(
                             'downlading\n${state.progress}',

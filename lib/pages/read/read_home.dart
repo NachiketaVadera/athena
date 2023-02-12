@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:athena/pages/read/read_view.dart';
+import 'package:collection/collection.dart';
 import 'package:epubx/epubx.dart' as epubx;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,9 +60,7 @@ class ReadHome extends ConsumerWidget {
                     final directory = '${(await getApplicationDocumentsDirectory()).path}/books';
 
                     await Future.wait(
-                      result.files
-                          .map((pf) => File(pf.path!))
-                          .map((f) => f.copy('$directory/${f.path.split('/').last}')),
+                      result.files.map((pf) => File(pf.path!)).map((f) => f.copy('$directory/${f.path.split('/').last}')),
                     );
 
                     ref.invalidate(booksProvider);
@@ -101,8 +100,19 @@ class _ListView extends StatelessWidget {
                   ),
                 );
               },
-              onLongPress: () {
-                Share.shareXFiles([]);
+              onLongPress: () async {
+                // TODO improve share
+
+                final files = Directory('${(await getApplicationDocumentsDirectory()).path}/books').listSync();
+                final file = files.firstWhereOrNull(
+                  (file) => file is File && file.path.toLowerCase().contains((book.Title ?? '').toLowerCase()),
+                );
+
+                if (file != null) {
+                  Share.shareXFiles([XFile(file.path)]);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('something went wrong')));
+                }
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),

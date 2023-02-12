@@ -1,4 +1,4 @@
-import 'package:athena/pages/search/search_page.dart';
+import 'package:athena/pages/search/result_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,7 +35,7 @@ class _SearchHomeState extends State<SearchHome> {
                     notify('search cannot be empty');
                   } else {
                     Navigator.of(context).push(
-                      CupertinoPageRoute(builder: (_) => SearchPage(text.toLowerCase().trim())),
+                      CupertinoPageRoute(builder: (_) => SearchResultPage(text.toLowerCase().trim())),
                     );
                   }
                 },
