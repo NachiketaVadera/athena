@@ -13,3 +13,4 @@ Still a lot of work to do but I'm happy to accept any contributions.
 * Add more sources
 * Improve search
 * Buildout the reader
+* Support multiple platforms
